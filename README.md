@@ -7,7 +7,7 @@ This repository contains the code for the experiments conducted during the revis
 Set these once in your shell before running any of the commands below:
 
 ```bash
-export REPO_DIR="<path/to/csde_experiments_revision>"
+export REPO_DIR="<path/to/csde_reproducibility_revision>"
 export CSDE_DIR="<path/to/csde>"
 export MERFISH_SRC="<path/to/merfish_pancancer_source>"
 export MERFISH_DIR="<path/to/merfish_pancancer>"
@@ -19,7 +19,7 @@ export BC_RESULTS_DIR="<path/to/breast_cancer_results>"
 - `REPO_DIR`: root of this git repo. Used to locate scripts and save outputs/figures.
 - `CSDE_DIR`: a clone of the csde package repo. Only needed at setup time (`pip install -e`) and to run the interactive `export.py` / `annotate.py` tools in the breast cancer experiment.
 - `MERSCOPE_DIR`: raw MERSCOPE output, containing one subdirectory per region (e.g. `region_R1/`, `region_R2/`), downloaded from the MERFISH 2.0 data portal ([download here](https://info.vizgen.com/merfish-2.0-data-release-form)). Read only by the preprocessing notebooks (`spatialdata_explore_R2.ipynb`, `spatialdata_explore_Rreplicate.ipynb`); not needed once the annotated zarr files have been written.
-- `MERFISH_DIR`: directory containing the processed MERFISH pancancer dataset: `{sample}_adata.annotated.h5ad` files and `{SampleDir}/manual_annotations/annotations.json` subdirectories, obtained using the original paper reproducibility code [here](https://github.com/PierreBoyeau/csde_experiments). Used by all experiments in this repository except the breast cancer experiment.
+- `MERFISH_DIR`: directory containing the processed MERFISH pancancer dataset: `{sample}_adata.annotated.h5ad` files and `{SampleDir}/manual_annotations/annotations.json` subdirectories, obtained using the original paper reproducibility code [here](https://github.com/PierreBoyeau/csde_reproducibility). Used by all experiments in this repository except the breast cancer experiment.
 - `BC_DATA_DIR`: staging directory for all breast cancer data. The preprocessing notebooks write `region_R1_annotated.zarr` and `region_R2_annotated.zarr` here; the Streamlit annotation tool writes `annotations_macrophages*/annotations.json` here. All three breast cancer experiment scripts (`breast_cancer_experiment.py`, `breast_cancer_experiment_all_replicates.py`, `breast_cancer_automated.py`) and `annotation_validation_stats.py` read from it.
 - `BC_RESULTS_DIR`: output directory for breast cancer results CSVs (`csde_results.csv`, `classic_poisson_results.csv`, `imputation_poisson_results.csv`, and their `_replicate` variants). Written by the experiment scripts; does not need to pre-exist with content.
 
